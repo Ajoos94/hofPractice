@@ -26,11 +26,30 @@ var moreFruits = function (fruits) {
 // which are multiples of five.
 var multiplesOfFive = function (numbers) {
 
+  var results = 0;
+  _.each(numbers, function(value, i, arr) {
+    value = value % 5;
+    if (value === 0) {
+      results += 1;
+    }
+  });
+  return results;
 };
 
 // use _.each to build an array containing only tweets belonging to a specified user.
 var getUserTweets = function(tweets, user) {
-
+  if (Array.isArray(tweets) === true) {
+    var results = [];
+    _.each(tweets, function(value, i, arr) {
+      if (value.user === user) {
+        results = tweets;
+      }
+    }
+     );
+  } else {
+    return [];
+  }
+  return results;
 };
 
 /*
